@@ -1,0 +1,66 @@
+package com.microservices.com.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.microservices.com.vo.Student;
+
+@Entity
+public class School {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long schoolId;
+	private String schoolName;
+	private String schoolAddress;
+	private List<Student> noOfStudents;
+
+	public School(long schoolId, String schoolName, String schoolAddress, List<Student> noOfStudents) {
+		super();
+		this.schoolId = schoolId;
+		this.schoolName = schoolName;
+		this.schoolAddress = schoolAddress;
+		this.noOfStudents = noOfStudents;
+	}
+
+	public long getSchoolId() {
+		return schoolId;
+	}
+
+	public void setSchoolId(long schoolId) {
+		this.schoolId = schoolId;
+	}
+
+	public String getSchoolName() {
+		return schoolName;
+	}
+
+	public void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+
+	public String getSchoolAddress() {
+		return schoolAddress;
+	}
+
+	public void setSchoolAddress(String schoolAddress) {
+		this.schoolAddress = schoolAddress;
+	}
+
+	public List<Student> getNoOfStudents() {
+		return noOfStudents;
+	}
+
+	public void setNoOfStudents(List<Student> noOfStudents) {
+		this.noOfStudents = noOfStudents;
+	}
+
+	public School() {
+		super();
+	}
+
+}

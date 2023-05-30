@@ -1,0 +1,5 @@
+package com.microservices.com.external.services;
+
+public class DepartmentService {
+
+}

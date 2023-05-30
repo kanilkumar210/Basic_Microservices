@@ -1,0 +1,5 @@
+package com.microservices.com.service;
+
+public class TeacherService {
+
+}

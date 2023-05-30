@@ -1,0 +1,43 @@
+package com.microservices.com.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.microservices.com.entity.School;
+import com.microservices.com.repository.SchoolRepository;
+
+@Service
+public class SchoolService {
+
+	@Autowired
+	private SchoolRepository schoolRepo;
+
+	@Autowired
+	private RestTemplate restTemplate;
+
+	public School saveUser(School school) {
+		// TODO Auto-generated method stub
+		return schoolRepo.save(school);
+	}
+
+	public List<School> getSchools() {
+		// TODO Auto-generated method stub
+		return schoolRepo.findAll();
+	}
+
+	public School getSchoolById(long id) {
+		// TODO Auto-generated method stub
+		School school = schoolRepo.findBySchoolId(id);
+
+		ArrayList students = restTemplate.getForObject("http://localhost:8001/students/getStudentsBySchoolId/" + school.getSchoolId(),
+				ArrayList.class);
+
+		school.setStudents(students);
+		return school;
+	}
+
+}

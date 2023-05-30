@@ -1,0 +1,17 @@
+package com.microservices.com.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+
+@Entity
+public class School {
+	
+	private long schoolId;
+	private String schoolName;
+	private String schoolAddress;
+	private List<Student> noOfStudents;
+	
+	
+
+}

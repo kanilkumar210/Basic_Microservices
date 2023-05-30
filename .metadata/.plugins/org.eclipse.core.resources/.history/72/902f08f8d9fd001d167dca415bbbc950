@@ -1,0 +1,51 @@
+server:
+  port: 9191
+  
+  
+  
+spring:
+  application:
+    name: APIGATEWAY
+  cloud:
+    gateway:
+      routes:
+      - id: USER-SERVICE
+        uri: lb://USER-SERVICE
+        predicates:
+        - Path=/users/**
+     
+      - id: DEPARTMENT-SERVICE
+        uri: lb://DEPARTMENT-SERVICE
+        predicates:
+        - Path=/departments/**
+        
+        
+      - id: SCHOOL-SERVICE
+        uri: lb://SCHOOL-SERVICE
+        predicates:
+        - Path=/school/**
+        
+      - id: TEACHER-SERVICE
+        uri: lb://TEACHER-SERVICE
+        predicates:
+        - Path=/teachers/**
+        
+        
+      - id: STUDENT-SERVICE
+        uri: lb://STUDENT-SERVICE
+        predicates:
+        - Path=/students/**
+
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+       
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost

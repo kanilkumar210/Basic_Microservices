@@ -1,0 +1,14 @@
+package com.microservices.com.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.microservices.com.repository.SchoolRepository;
+
+@Service
+public class SchoolService {
+
+	@Autowired
+	private SchoolRepository schoolRepo;
+
+}

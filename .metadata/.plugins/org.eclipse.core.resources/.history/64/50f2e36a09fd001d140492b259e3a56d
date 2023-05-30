@@ -1,0 +1,16 @@
+package com.microservices.com.external.services;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.microservices.com.vo.Department;
+
+@FeignClient(name = "DEPARTMENT-SERVICE")
+public interface DepartmentService {
+	
+	@GetMapping("/departments/allDepartments")
+	public List<Department> getAllDepartments();
+
+}

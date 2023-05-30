@@ -1,0 +1,5 @@
+package com.microservices.com.repository;
+
+public class UserRepository {
+
+}

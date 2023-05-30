@@ -1,0 +1,5 @@
+package com.microservices.com.entity;
+
+public class User {
+
+}

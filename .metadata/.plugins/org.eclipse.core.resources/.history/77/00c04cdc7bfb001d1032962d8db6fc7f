@@ -1,0 +1,24 @@
+server:
+  port: 9002
+  
+spring:
+    datasource:
+    url: jdbc:mysql://localhost:3306/microservices
+    username: root
+    password: Anilkarre8@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 20000
+      minimum-idle: 5
+      maximum-pool-size: 10
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    show-sql: true
+ 
+  application:
+    name: USER-SERVICE

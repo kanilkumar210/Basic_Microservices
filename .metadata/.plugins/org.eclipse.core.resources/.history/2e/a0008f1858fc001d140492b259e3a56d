@@ -1,0 +1,23 @@
+package com.microservices.com;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
+@RestController
+public class FallBackMethodController {
+
+	final String USER_SERVICE = "userService";
+
+	@GetMapping("/userServiceFallBack")
+	@CircuitBreaker(name = USER_SERVICE, fallbackMethod = "userServiceFallBackMethod")
+	public String userServiceFallBackMethod() {
+		return "User Service is taking longer than excepted. " + "Please try again later";
+	}
+
+	@GetMapping("/departmentServiceFallBack")
+	public String departmentServiceFallBackMethod() {
+		return "Department Service is taking longer than excepted. " + "Please try again later";
+	}
+}
